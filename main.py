@@ -25,9 +25,14 @@ X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.2)
 model=RandomForestClassifier()
 model.fit(X_train,y_train)
 
+
 # Step 6: Make predictions
 y_pred=model.predict(X_test)
 
 # Step 7: Show results
 print("\nModel Results:")
 print(classification_report(y_test, y_pred))
+
+#This is to save the model
+import joblib
+joblib.dump(model,"model.pkl")
